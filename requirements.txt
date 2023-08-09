@@ -1,0 +1,8 @@
+numpy
+scipy
+torch
+matplotlib
+jupyter
+tqdm
+seaborn
+networkx
