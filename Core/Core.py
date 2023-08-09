@@ -260,21 +260,21 @@ class GraphNet:
     #
     #     return out
 
-    def sample_forward(self, adjacency_matrix, n_samples=None, timer=False, saveFilename=None):
+    def sample_forward(self, adjacency_matrix, nSamples=None, timer=False, saveFilename=None):
         """
         Given an adjacency matrix, cluster some graphs and return
         'epochs' number of final states reached using the current
         forward model. If epochs is left as None use self.epochs.
         :param adjacency_matrix: matrix (n_nodes, n_nodes)
-        :param n_samples: (None or int)
+        :param nSamples: (None or int)
         :return:
         """
 
-        if n_samples is None:
-            n_samples = self.epochs
+        if nSamples is None:
+            nSamples = self.epochs
 
-        final_states = torch.zeros((n_samples, self.state_length))
-        for epoch in tqdm(range(n_samples), desc='Sampling') if timer else range(n_samples):
+        final_states = torch.zeros((nSamples, self.state_length))
+        for epoch in tqdm(range(nSamples), desc='Sampling') if timer else range(nSamples):
             # Initialize the empty clustering and one-hot vector
             clustering_matrix = torch.zeros(self.size)
             clustering_list = torch.zeros(self.n_nodes)
